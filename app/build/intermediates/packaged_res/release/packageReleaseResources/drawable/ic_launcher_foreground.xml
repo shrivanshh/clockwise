@@ -1,0 +1,36 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Calm circle -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="1.0"
+        android:pathData="M54,18a36,36 0 1,0 0,72a36,36 0 1,0 0,-72z"/>
+    <!-- Minimal brain outline -->
+    <path
+        android:fillColor="#26A69A"
+        android:pathData="
+            M54,36
+            c-9,0 -16,7 -16,16
+            v2
+            c-5,1 -8,5 -8,10
+            c0,6 5,11 11,11
+            h13
+            c9,0 16,-7 16,-16
+            v-1
+            c4,-1 7,-5 7,-9
+            c0,-6 -5,-11 -11,-11
+            h-1
+            c-2,-5 -6,-8 -11,-8z"/>
+    <!-- Calm breath waves -->
+    <path
+        android:fillColor="#00796B"
+        android:fillAlpha="0.9"
+        android:pathData="
+            M34,70
+            c6,0 6,-4 12,-4
+            s6,4 12,4
+            s6,-4 12,-4"/>
+</vector>

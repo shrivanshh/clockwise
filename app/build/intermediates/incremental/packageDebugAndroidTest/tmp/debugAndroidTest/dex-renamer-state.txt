@@ -1,0 +1,4 @@
+#Fri Sep 26 01:41:33 EDT 2025
+base.0=/opt/repo/RTOFYTracker/app/build/intermediates/dex/debugAndroidTest/mergeProjectDexDebugAndroidTest/0/classes.dex
+path.0=0/classes.dex
+renamed.0=classes.dex

@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.example.rtofy.app-mergeReleaseResources-58:/values-v23/values-v23.xml",
+            "map": [
+                {
+                    "source": "/opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/res/values-v23/values-v23.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,121",
+                        "endColumns": "65,62",
+                        "endOffsets": "116,179"
+                    }
+                }
+            ]
+        }
+    ]
+}
