@@ -1,5 +1,7 @@
 package com.example.rtofy.ui
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -15,11 +17,12 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
-import kotlin.math.roundToInt
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun HomeScreen(vm: RtoViewModel) {
     val ui by vm.ui.collectAsState()
@@ -45,6 +48,7 @@ fun HomeScreen(vm: RtoViewModel) {
     }
 }
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun SettingsScreen(vm: RtoViewModel) {
     val ui by vm.ui.collectAsState()
@@ -60,6 +64,7 @@ fun SettingsScreen(vm: RtoViewModel) {
     }
 }
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun EditScreen(vm: RtoViewModel) {
     val ui by vm.ui.collectAsState()
@@ -156,12 +161,10 @@ fun SettingsCard(fyStart: Int, onSave: (Int) -> Unit) {
     }
 }
 
-private fun LocalDate.toShortMonthDay(): String {
-    return "${month.name.lowercase().replaceFirstChar { it.uppercase() }} $dayOfMonth"
-}
-
+@RequiresApi(Build.VERSION_CODES.O)
 private val shortFmt = DateTimeFormatter.ofPattern("MMM d")
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun DashboardCard(ui: UiState) {
     ElevatedCard(
@@ -270,18 +273,18 @@ fun CompactRtoGauge(
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .height(88.dp),
+            .height(105.dp),
         contentAlignment = Alignment.Center
     ) {
         Canvas(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(56.dp)
+                .height(64.dp)
         ) {
             val strokeWidth = 8.dp.toPx()
             val gaugeDiameter = size.width * 0.7f
             val left = (size.width - gaugeDiameter) / 2f
-            val top = 4.dp.toPx()
+            val top = (-6).dp.toPx()
 
             drawArc(
                 color = Color(0xFFE8E8EC),
@@ -305,7 +308,7 @@ fun CompactRtoGauge(
         }
 
         Column(
-            modifier = Modifier.padding(top = 18.dp),
+            modifier = Modifier.padding(top = 35.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
@@ -313,10 +316,12 @@ fun CompactRtoGauge(
                 style = MaterialTheme.typography.titleMedium,
                 color = progressColor
             )
+            val status = rtoStatusLabel(safeProgress)
             Text(
-                text = rtoStatusLabel(safeProgress),
+                text = status.replace(" ", "\n"),
                 style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                textAlign = TextAlign.Center
             )
         }
     }
@@ -344,300 +349,7 @@ fun MiniStatRow(
     }
 }
 
-@Composable
-fun CompactRtoGauge(
-    progress: Float,
-    label: String,
-    modifier: Modifier = Modifier
-) {
-    val safeProgress = progress.coerceIn(0f, 1f)
-    val percentage = (safeProgress * 100).roundToInt()
-    val progressColor = gaugeColor(safeProgress)
-
-    Surface(
-        modifier = modifier,
-        shape = RoundedCornerShape(18.dp),
-        tonalElevation = 1.dp,
-        color = MaterialTheme.colorScheme.surface
-    ) {
-        Column(
-            modifier = Modifier.padding(horizontal = 12.dp, vertical = 12.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(6.dp)
-        ) {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(80.dp),
-                contentAlignment = Alignment.Center
-            ) {
-                Canvas(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(56.dp)
-                ) {
-                    val strokeWidth = 8.dp.toPx()
-                    val gaugeDiameter = size.width * 0.7f
-                    val left = (size.width - gaugeDiameter) / 2f
-                    val top = 6.dp.toPx()
-
-                    drawArc(
-                        color = Color(0xFFE8E8EC),
-                        startAngle = 180f,
-                        sweepAngle = 180f,
-                        useCenter = false,
-                        topLeft = Offset(left, top),
-                        size = Size(gaugeDiameter, gaugeDiameter),
-                        style = Stroke(width = strokeWidth, cap = StrokeCap.Round)
-                    )
-
-                    drawArc(
-                        color = progressColor,
-                        startAngle = 180f,
-                        sweepAngle = 180f * safeProgress,
-                        useCenter = false,
-                        topLeft = Offset(left, top),
-                        size = Size(gaugeDiameter, gaugeDiameter),
-                        style = Stroke(width = strokeWidth, cap = StrokeCap.Round)
-                    )
-                }
-
-                Column(
-                    modifier = Modifier.padding(top = 20.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Text(
-                        text = "$percentage%",
-                        style = MaterialTheme.typography.titleMedium,
-                        color = progressColor
-                    )
-                    Text(
-                        text = label,
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                }
-            }
-        }
-    }
-}
-
-private fun parsePercentString(percent: String): Float {
-    return percent
-        .replace("%", "")
-        .trim()
-        .toFloatOrNull()
-        ?.div(100f)
-        ?: 0f
-}
-
-@Composable
-fun StatsGrid(ui: UiState) {
-    Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(12.dp)
-        ) {
-            StatTile(
-                label = "Business Days",
-                value = ui.bizToDate.toString(),
-                modifier = Modifier.weight(1f)
-            )
-            StatTile(
-                label = "Office Days",
-                value = ui.officeToDate.toString(),
-                modifier = Modifier.weight(1f)
-            )
-        }
-
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(12.dp)
-        ) {
-            StatTile(
-                label = "To-Date RTO",
-                value = ui.rtoToDatePctString,
-                modifier = Modifier.weight(1f),
-                valueColor = gaugeColor(ui.rtoToDatePct)
-            )
-            StatTile(
-                label = "Full-Qtr RTO",
-                value = ui.rtoFullPctString,
-                modifier = Modifier.weight(1f)
-            )
-        }
-    }
-}
-
-@Composable
-fun StatTile(
-    label: String,
-    value: String,
-    modifier: Modifier = Modifier,
-    valueColor: Color = MaterialTheme.colorScheme.onSurface
-) {
-    Surface(
-        modifier = modifier,
-        shape = RoundedCornerShape(18.dp),
-        tonalElevation = 2.dp,
-        color = MaterialTheme.colorScheme.surface
-    ) {
-        Column(
-            modifier = Modifier.padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(6.dp)
-        ) {
-            Text(
-                text = label,
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-            Text(
-                text = value,
-                style = MaterialTheme.typography.titleLarge,
-                color = valueColor
-            )
-        }
-    }
-}
-
-@Composable
-fun RtoGauge(
-    progress: Float,
-    modifier: Modifier = Modifier
-) {
-    val safeProgress = progress.coerceIn(0f, 1f)
-    val percentage = (safeProgress * 100).roundToInt()
-    val progressColor = gaugeColor(safeProgress)
-
-    Box(
-        modifier = modifier,
-        contentAlignment = Alignment.TopCenter
-    ) {
-        Canvas(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(88.dp)
-        ) {
-            val strokeWidth = 10.dp.toPx()
-
-            // make the gauge smaller than the full card width
-            val gaugeDiameter = size.width * 0.55f
-            val left = (size.width - gaugeDiameter) / 2f
-            val top = 10.dp.toPx()
-
-            drawArc(
-                color = Color(0xFFE8E8EC),
-                startAngle = 180f,
-                sweepAngle = 180f,
-                useCenter = false,
-                topLeft = Offset(left, top),
-                size = Size(gaugeDiameter, gaugeDiameter),
-                style = Stroke(width = strokeWidth, cap = StrokeCap.Round)
-            )
-
-            drawArc(
-                color = progressColor,
-                startAngle = 180f,
-                sweepAngle = 180f * safeProgress,
-                useCenter = false,
-                topLeft = Offset(left, top),
-                size = Size(gaugeDiameter, gaugeDiameter),
-                style = Stroke(width = strokeWidth, cap = StrokeCap.Round)
-            )
-        }
-
-        Column(
-            modifier = Modifier.padding(top = 55.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Text(
-                text = "$percentage%",
-                style = MaterialTheme.typography.titleMedium,
-                color = progressColor
-            )
-            Text(
-                text = "On Track",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-        }
-    }
-}
-
-@Composable
-fun CompactStatRow(
-    label: String,
-    value: String,
-    iconBg: Color,
-    iconColor: Color
-) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 2.dp),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Text(
-            text = label,
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier.weight(1f)
-        )
-
-        Text(
-            text = value,
-            style = MaterialTheme.typography.titleMedium
-        )
-
-        Spacer(Modifier.width(8.dp))
-
-        Surface(
-            modifier = Modifier.size(22.dp),
-            shape = RoundedCornerShape(11.dp),
-            color = iconBg
-        ) {
-            Box(contentAlignment = Alignment.Center) {
-                Text(
-                    text = "⌂",
-                    color = iconColor,
-                    style = MaterialTheme.typography.labelSmall
-                )
-            }
-        }
-    }
-}
-
-@Composable
-fun SmallMetricTile(
-    label: String,
-    value: String,
-    modifier: Modifier = Modifier,
-    valueColor: Color = MaterialTheme.colorScheme.onSurface
-) {
-    Surface(
-        modifier = modifier,
-        shape = RoundedCornerShape(16.dp),
-        tonalElevation = 1.dp,
-        color = MaterialTheme.colorScheme.surface
-    ) {
-        Column(
-            modifier = Modifier.padding(horizontal = 12.dp, vertical = 10.dp),
-            verticalArrangement = Arrangement.spacedBy(2.dp)
-        ) {
-            Text(
-                text = label,
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-            Text(
-                text = value,
-                style = MaterialTheme.typography.headlineSmall,
-                color = valueColor
-            )
-        }
-    }
-}
-
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun HolidaysCard(
     ui: UiState,
@@ -792,8 +504,8 @@ private fun gaugeColor(progress: Float): Color {
 
 private fun rtoStatusLabel(progress: Float): String {
     return when {
-        progress < 0.4f -> "Needs attention"
-        progress < 0.5f -> "Doing okay"
-        else -> "On track"
+        progress < 0.4f -> "Needs Attention"
+        progress < 0.5f -> "Doing Okay"
+        else -> "On Track"
     }
 }

@@ -1,5 +1,7 @@
 package com.example.rtofy.ui
 import android.app.Application
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.rtofy.data.Repo
@@ -11,7 +13,7 @@ import kotlinx.coroutines.launch
 import java.text.NumberFormat
 import java.time.LocalDate
 
-data class UiState(
+data class UiState @RequiresApi(Build.VERSION_CODES.O) constructor(
     val fyStartMonth: Int = 4,
     val qStart: LocalDate = LocalDate.now(),
     val qEnd: LocalDate = LocalDate.now(),
@@ -35,34 +37,37 @@ class RtoViewModel(app: Application) : AndroidViewModel(app) {
 
     private val refresh = MutableSharedFlow<Unit>(extraBufferCapacity = 1)
 
-    val ui: StateFlow<UiState> = combine(
-        settings.fyStartMonthFlow,
-        repo.holidaysFlow(),
-        refresh.onStart { emit(Unit) }
-    ) { fy, holidays, _ -> Pair(fy, holidays.map { it.date }) }.flatMapLatest { (fy, holidays) ->
-        flow {
-            val today = LocalDate.now()
+    @RequiresApi(Build.VERSION_CODES.O)
+    val ui: StateFlow<UiState> =
+        combine(
+            settings.fyStartMonthFlow,
+            repo.holidaysFlow(),
+            refresh.onStart { emit(Unit) }
+        ) { fy, holidays, _ ->
+            Triple(fy, holidays.map { it.date }, LocalDate.now())
+        }.flatMapLatest { (fy, holidays, today) ->
+
             val (qs, qe) = repo.currentFyQuarter(today, fy)
 
-            val bizTo = repo.businessDaysBetween(qs, minOf(today, qe))
-            val officeTo = repo.officeDaysBetween(qs, minOf(today, qe))
+            repo.attendanceFlowBetween(qs, qe).map { entries ->
+                val bizTo = repo.businessDaysBetween(qs, minOf(today, qe))
+                val officeTo = repo.officeDaysBetween(qs, minOf(today, qe))
 
-            val bizFull = repo.businessDaysBetween(qs, qe)
-            val officeFull = repo.officeDaysBetween(qs, qe)
+                val bizFull = repo.businessDaysBetween(qs, qe)
+                val officeFull = repo.officeDaysBetween(qs, qe)
 
-            val holidaySet = holidays.toHashSet()
-val dates = generateSequence(qs) { it.plusDays(1) }
-    .takeWhile { !it.isAfter(qe) }
-    .filter { d ->
-        val wd = d.dayOfWeek.value // 1=Mon ... 7=Sun
-        (wd in 1..5) && !holidaySet.contains(d)
-    }.toList()
+                val holidaySet = holidays.toHashSet()
 
-            // Build attendance map from DB flow (one-shot collect)
-            val entries = repo.attendanceFlowBetween(qs, qe).first()
-            val map = entries.associate { it.date to it.wentToOffice }
+                val dates = generateSequence(qs) { it.plusDays(1) }
+                    .takeWhile { !it.isAfter(qe) }
+                    .filter { d ->
+                        val wd = d.dayOfWeek.value
+                        (wd in 1..5) && !holidaySet.contains(d)
+                    }
+                    .toList()
 
-            emit(
+                val map = entries.associate { it.date to it.wentToOffice }
+
                 UiState(
                     fyStartMonth = fy,
                     qStart = qs,
@@ -79,20 +84,49 @@ val dates = generateSequence(qs) { it.plusDays(1) }
                     rtoToDatePct = pct(officeTo, bizTo),
                     rtoFullPct = pct(officeFull, bizFull)
                 )
-            )
-        }
-    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), UiState())
+            }
+        }.stateIn(
+            viewModelScope,
+            SharingStarted.WhileSubscribed(5000),
+            UiState()
+        )
 
-    fun setFyStartMonth(m: Int) = viewModelScope.launch { settings.setFyStartMonth(m); refresh.tryEmit(Unit) }
-    fun addHoliday(d: LocalDate) = viewModelScope.launch { repo.addHoliday(d); refresh.tryEmit(Unit) }
-    fun removeHoliday(d: LocalDate) = viewModelScope.launch { repo.deleteHoliday(d); refresh.tryEmit(Unit) }
-    fun markToday(went: Boolean) = viewModelScope.launch { repo.markToday(went); refresh.tryEmit(Unit) }
-    fun setAttendance(date: LocalDate, went: Boolean) = viewModelScope.launch { repo.setAttendance(date, went); refresh.tryEmit(Unit) }
+    fun setFyStartMonth(m: Int) = viewModelScope.launch {
+        settings.setFyStartMonth(m)
+        refresh.tryEmit(Unit)
+    }
+
+    fun addHoliday(d: LocalDate) = viewModelScope.launch {
+        repo.addHoliday(d)
+        refresh.tryEmit(Unit)
+    }
+
+    fun removeHoliday(d: LocalDate) = viewModelScope.launch {
+        repo.deleteHoliday(d)
+        refresh.tryEmit(Unit)
+    }
+
+    fun markToday(went: Boolean) = viewModelScope.launch {
+        repo.markToday(went)
+        refresh.tryEmit(Unit)
+    }
+
+    fun setAttendance(date: LocalDate, went: Boolean) = viewModelScope.launch {
+        repo.setAttendance(date, went)
+        refresh.tryEmit(Unit)
+    }
 
     companion object {
         fun pctString(n: Int, d: Int): String =
-            if (d == 0) "0%" else NumberFormat.getPercentInstance().apply { maximumFractionDigits = 1 }.format(n.toDouble()/d)
+            if (d == 0) {
+                "0%"
+            } else {
+                NumberFormat.getPercentInstance().apply {
+                    maximumFractionDigits = 1
+                }.format(n.toDouble() / d.toDouble())
+            }
+
         fun pct(n: Int, d: Int): Float =
-             if (d == 0) 0f else n.toFloat() / d.toFloat()
+            if (d == 0) 0f else n.toFloat() / d.toFloat()
     }
 }
