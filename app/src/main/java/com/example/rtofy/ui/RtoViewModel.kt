@@ -5,10 +5,10 @@ import androidx.annotation.RequiresApi
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.rtofy.data.Repo
+import com.example.rtofy.notify.AlarmScheduler
 import com.example.rtofy.prefs.SettingsRepo
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.*
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import java.text.NumberFormat
 import java.time.LocalDate
@@ -27,7 +27,10 @@ data class UiState @RequiresApi(Build.VERSION_CODES.O) constructor(
     val dates: List<LocalDate> = emptyList(),
     val attendanceMap: Map<LocalDate, Boolean> = emptyMap(),
     val rtoToDatePct: Float = 0f,       // 0.0f to 1.0f
-    val rtoFullPct: Float = 0f
+    val rtoFullPct: Float = 0f,
+
+    val notificationHour: Int = 8,
+    val notificationMinute: Int = 30
 )
 
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -41,12 +44,14 @@ class RtoViewModel(app: Application) : AndroidViewModel(app) {
     val ui: StateFlow<UiState> =
         combine(
             settings.fyStartMonthFlow,
+            settings.notificationHourFlow,
+            settings.notificationMinuteFlow,
             repo.holidaysFlow(),
             refresh.onStart { emit(Unit) }
-        ) { fy, holidays, _ ->
-            Triple(fy, holidays.map { it.date }, LocalDate.now())
-        }.flatMapLatest { (fy, holidays, today) ->
-
+        ) { fy, notifHour, notifMinute, holidays, _ ->
+            Quadruple(fy, notifHour, notifMinute, holidays.map { it.date })
+        }.flatMapLatest { (fy, notifHour, notifMinute, holidays) ->
+            val today = LocalDate.now()
             val (qs, qe) = repo.currentFyQuarter(today, fy)
 
             repo.attendanceFlowBetween(qs, qe).map { entries ->
@@ -82,7 +87,9 @@ class RtoViewModel(app: Application) : AndroidViewModel(app) {
                     dates = dates,
                     attendanceMap = map,
                     rtoToDatePct = pct(officeTo, bizTo),
-                    rtoFullPct = pct(officeFull, bizFull)
+                    rtoFullPct = pct(officeFull, bizFull),
+                    notificationHour = notifHour,
+                    notificationMinute = notifMinute
                 )
             }
         }.stateIn(
@@ -90,6 +97,19 @@ class RtoViewModel(app: Application) : AndroidViewModel(app) {
             SharingStarted.WhileSubscribed(5000),
             UiState()
         )
+
+    data class Quadruple<A, B, C, D>(
+        val first: A,
+        val second: B,
+        val third: C,
+        val fourth: D
+    )
+
+    fun setNotificationTime(hour: Int, minute: Int) = viewModelScope.launch {
+        settings.setNotificationTime(hour, minute)
+        AlarmScheduler.scheduleNextMorningPrompt(getApplication(), hour, minute)
+        refresh.tryEmit(Unit)
+    }
 
     fun setFyStartMonth(m: Int) = viewModelScope.launch {
         settings.setFyStartMonth(m)

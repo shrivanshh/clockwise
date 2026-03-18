@@ -1,7 +1,6 @@
 package com.example.rtofy.ui
 import android.Manifest
 import android.app.AlarmManager
-import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -25,7 +24,6 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.rtofy.notify.AlarmScheduler
 import com.example.rtofy.ui.theme.RtofyTheme
-import java.util.Calendar
 
 class MainActivity : ComponentActivity() {
     private val notificationPermissionLauncher =
@@ -54,7 +52,7 @@ class MainActivity : ComponentActivity() {
     }
     private fun requestExactAlarmIfNeededAndSchedule() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+            val alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
             if (!alarmManager.canScheduleExactAlarms()) {
                 val intent = Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM)
                 startActivity(intent)

@@ -59,8 +59,24 @@ fun SettingsScreen(vm: RtoViewModel) {
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        item { SettingsCard(ui.fyStartMonth, onSave = { vm.setFyStartMonth(it) }) }
-        item { HolidaysCard(ui, onAdd = { vm.addHoliday(it) }, onRemove = { vm.removeHoliday(it) }) }
+        item {
+            SettingsCard(
+                fyStart = ui.fyStartMonth,
+                notificationHour = ui.notificationHour,
+                notificationMinute = ui.notificationMinute,
+                onSaveFy = { vm.setFyStartMonth(it) },
+                onSaveNotificationTime = { hour, minute ->
+                    vm.setNotificationTime(hour, minute)
+                }
+            )
+        }
+        item {
+            HolidaysCard(
+                ui,
+                onAdd = { vm.addHoliday(it) },
+                onRemove = { vm.removeHoliday(it) }
+            )
+        }
     }
 }
 
@@ -110,8 +126,15 @@ fun EditScreen(vm: RtoViewModel) {
 }
 
 @Composable
-fun SettingsCard(fyStart: Int, onSave: (Int) -> Unit) {
+fun SettingsCard(
+    fyStart: Int,
+    notificationHour: Int,
+    notificationMinute: Int,
+    onSaveFy: (Int) -> Unit,
+    onSaveNotificationTime: (Int, Int) -> Unit
+) {
     var fyText by remember(fyStart) { mutableStateOf(fyStart.toString()) }
+    var showTimePicker by remember { mutableStateOf(false) }
 
     ElevatedCard(
         modifier = Modifier.fillMaxWidth(),
@@ -143,7 +166,7 @@ fun SettingsCard(fyStart: Int, onSave: (Int) -> Unit) {
                 Button(
                     onClick = {
                         fyText.toIntOrNull()?.let {
-                            if (it in 1..12) onSave(it)
+                            if (it in 1..12) onSaveFy(it)
                         }
                     },
                     shape = RoundedCornerShape(16.dp)
@@ -152,13 +175,92 @@ fun SettingsCard(fyStart: Int, onSave: (Int) -> Unit) {
                 }
             }
 
+            HorizontalDivider()
+
             Text(
-                "Morning prompt ~8:30 AM (device time).",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
+                "Notification Time",
+                style = MaterialTheme.typography.titleMedium
             )
+
+            Surface(
+                shape = RoundedCornerShape(16.dp),
+                tonalElevation = 1.dp
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp, vertical = 14.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                        Text(
+                            "Daily Prompt",
+                            style = MaterialTheme.typography.bodyLarge
+                        )
+                        Text(
+                            formatTime(notificationHour, notificationMinute),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+
+                    OutlinedButton(
+                        onClick = { showTimePicker = true },
+                        shape = RoundedCornerShape(14.dp)
+                    ) {
+                        Text("Change")
+                    }
+                }
+            }
         }
     }
+
+    if (showTimePicker) {
+        NotificationTimePickerDialog(
+            initialHour = notificationHour,
+            initialMinute = notificationMinute,
+            onDismiss = { showTimePicker = false },
+            onConfirm = { hour, minute ->
+                showTimePicker = false
+                onSaveNotificationTime(hour, minute)
+            }
+        )
+    }
+}
+
+@Composable
+fun NotificationTimePickerDialog(
+    initialHour: Int,
+    initialMinute: Int,
+    onDismiss: () -> Unit,
+    onConfirm: (Int, Int) -> Unit
+) {
+    val context = androidx.compose.ui.platform.LocalContext.current
+
+    LaunchedEffect(Unit) {
+        android.app.TimePickerDialog(
+            context,
+            { _, hourOfDay, minute ->
+                onConfirm(hourOfDay, minute)
+            },
+            initialHour,
+            initialMinute,
+            false
+        ).apply {
+            setOnDismissListener { onDismiss() }
+        }.show()
+    }
+}
+
+private fun formatTime(hour: Int, minute: Int): String {
+    val amPm = if (hour < 12) "AM" else "PM"
+    val displayHour = when {
+        hour == 0 -> 12
+        hour > 12 -> hour - 12
+        else -> hour
+    }
+    return "%d:%02d %s".format(displayHour, minute, amPm)
 }
 
 @RequiresApi(Build.VERSION_CODES.O)

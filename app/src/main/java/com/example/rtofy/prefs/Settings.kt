@@ -1,5 +1,6 @@
 package com.example.rtofy.prefs
 
+import android.annotation.SuppressLint
 import android.content.Context
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
@@ -8,12 +9,44 @@ import kotlinx.coroutines.flow.map
 
 private val Context.dataStore by preferencesDataStore(name = "settings")
 
-object Keys { val FyStartMonth = intPreferencesKey("fy_start_month") }
+class SettingsRepo private constructor(private val context: Context) {
 
-class SettingsRepo(private val context: Context) {
-    val fyStartMonthFlow = context.dataStore.data.map { it[Keys.FyStartMonth] ?: 4 }
-    suspend fun setFyStartMonth(m: Int) {
-        require(m in 1..12); context.dataStore.edit { it[Keys.FyStartMonth] = m }
+    companion object {
+        private val FY_START_MONTH = intPreferencesKey("fy_start_month")
+        private val NOTIFICATION_HOUR = intPreferencesKey("notification_hour")
+        private val NOTIFICATION_MINUTE = intPreferencesKey("notification_minute")
+
+        @SuppressLint("StaticFieldLeak")
+        @Volatile private var INSTANCE: SettingsRepo? = null
+
+        fun get(context: Context): SettingsRepo =
+            INSTANCE ?: synchronized(this) {
+                INSTANCE ?: SettingsRepo(context.applicationContext).also { INSTANCE = it }
+            }
     }
-    companion object { fun get(ctx: Context) = SettingsRepo(ctx.applicationContext) }
+
+    val fyStartMonthFlow = context.dataStore.data.map {
+        it[FY_START_MONTH] ?: 4
+    }
+
+    val notificationHourFlow = context.dataStore.data.map {
+        it[NOTIFICATION_HOUR] ?: 8
+    }
+
+    val notificationMinuteFlow = context.dataStore.data.map {
+        it[NOTIFICATION_MINUTE] ?: 30
+    }
+
+    suspend fun setFyStartMonth(month: Int) {
+        context.dataStore.edit {
+            it[FY_START_MONTH] = month
+        }
+    }
+
+    suspend fun setNotificationTime(hour: Int, minute: Int) {
+        context.dataStore.edit {
+            it[NOTIFICATION_HOUR] = hour
+            it[NOTIFICATION_MINUTE] = minute
+        }
+    }
 }
