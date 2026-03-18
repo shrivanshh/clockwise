@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:1:1-21:12
-INJECTED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:1:1-21:12
-INJECTED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:1:1-21:12
-INJECTED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:1:1-21:12
+ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:1:1-23:12
+INJECTED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:1:1-23:12
+INJECTED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:1:1-23:12
+INJECTED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:1:1-23:12
 MERGED from [androidx.navigation:navigation-common:2.8.0] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/90cac4f10c8cf32f602bfe63549ca7f4/transformed/navigation-common-2.8.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-runtime:2.8.0] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/4ecc718cff53caf6553611f94af95336/transformed/navigation-runtime-2.8.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-common-ktx:2.8.0] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/d99367142f5d1d4a90fc50e267163cbe/transformed/navigation-common-ktx-2.8.0/AndroidManifest.xml:2:1-7:12
@@ -75,9 +75,13 @@ MERGED from [androidx.tracing:tracing:1.0.0] /opt/repo/RTOFYTracker/.graddle/cac
 		INJECTED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:1:11-69
+uses-permission#android.permission.POST_NOTIFICATIONS
+ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:3:5-77
+	android:name
+		ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:3:22-74
 application
-ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:2:3-20:17
-INJECTED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:2:3-20:17
+ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:4:5-22:17
+INJECTED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:4:5-22:17
 MERGED from [androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:28:5-143:19
 MERGED from [androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:28:5-143:19
 MERGED from [androidx.compose.ui:ui-tooling-android:1.7.2] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/c35d50aeb7871f8f154582a7a608b91b/transformed/ui-tooling-release/AndroidManifest.xml:22:5-26:19
@@ -101,37 +105,37 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] /opt/repo/RTOFYTracker/.gra
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.13.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/354f1b63ccc7143edaa9c95ca532bca1/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:6:7-33
+		ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:8:7-33
 	android:label
-		ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:4:7-32
+		ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:6:7-32
 	android:roundIcon
-		ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:2:16-55
+		ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:4:18-57
 	android:icon
-		ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:5:7-41
+		ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:7:7-41
 	android:allowBackup
-		ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:3:7-33
+		ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:5:7-33
 activity#com.example.rtofy.ui.MainActivity
-ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:7:5-14:16
+ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:9:5-16:16
 	android:exported
-		ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:9:9-32
+		ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:11:9-32
 	android:name
-		ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:8:9-40
+		ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:10:9-40
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:10:7-13:23
+ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:12:7-15:23
 action#android.intent.action.MAIN
-ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:11:9-60
+ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:13:9-60
 	android:name
-		ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:11:17-58
+		ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:13:17-58
 category#android.intent.category.LAUNCHER
-ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:12:9-68
+ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:14:9-68
 	android:name
-		ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:12:19-66
+		ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:14:19-66
 receiver#com.example.rtofy.notify.NotificationActionReceiver
-ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:16:5-18:35
+ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:18:5-20:35
 	android:exported
-		ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:18:9-32
+		ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:20:9-32
 	android:name
-		ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:17:9-58
+		ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:19:9-58
 uses-sdk
 INJECTED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml

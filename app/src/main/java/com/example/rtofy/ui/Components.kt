@@ -1,29 +1,60 @@
 package com.example.rtofy.ui
 
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.unit.dp
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+import kotlin.math.roundToInt
 
 @Composable
 fun HomeScreen(vm: RtoViewModel) {
     val ui by vm.ui.collectAsState()
-    LazyColumn(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
-        item { DashboardCard(ui) }
-        item { QuickLogCard(onYes = { vm.markToday(true) }, onNo = { vm.markToday(false) }) }
+
+    Surface(
+        modifier = Modifier.fillMaxSize(),
+        color = MaterialTheme.colorScheme.background
+    ) {
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(horizontal = 12.dp, vertical = 14.dp),
+            verticalArrangement = Arrangement.spacedBy(14.dp)
+        ) {
+            item { DashboardCard(ui) }
+            item {
+                QuickLogCard(
+                    onYes = { vm.markToday(true) },
+                    onNo = { vm.markToday(false) }
+                )
+            }
+        }
     }
 }
 
 @Composable
 fun SettingsScreen(vm: RtoViewModel) {
     val ui by vm.ui.collectAsState()
-    LazyColumn(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
+
+    LazyColumn(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp)
+    ) {
         item { SettingsCard(ui.fyStartMonth, onSave = { vm.setFyStartMonth(it) }) }
         item { HolidaysCard(ui, onAdd = { vm.addHoliday(it) }, onRemove = { vm.removeHoliday(it) }) }
     }
@@ -33,84 +64,653 @@ fun SettingsScreen(vm: RtoViewModel) {
 fun EditScreen(vm: RtoViewModel) {
     val ui by vm.ui.collectAsState()
     val fmt = DateTimeFormatter.ISO_LOCAL_DATE
-    LazyColumn(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-        item { Text("Edit Attendance (this quarter)", style = MaterialTheme.typography.titleMedium) }
+
+    LazyColumn(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp)
+    ) {
+        item {
+            Text(
+                "Edit Attendance (this quarter)",
+                style = MaterialTheme.typography.titleLarge
+            )
+        }
+
         items(ui.dates) { d ->
-            val checked = ui.attendanceMap[d] == true
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                Text(d.format(fmt))
-                Switch(checked = checked, onCheckedChange = { vm.setAttendance(d, it) })
+            ElevatedCard(
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(18.dp)
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp, vertical = 14.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = d.format(fmt),
+                        style = MaterialTheme.typography.bodyLarge
+                    )
+                    Switch(
+                        checked = ui.attendanceMap[d] == true,
+                        onCheckedChange = { vm.setAttendance(d, it) }
+                    )
+                }
             }
-            HorizontalDivider()
         }
     }
 }
 
 @Composable
 fun SettingsCard(fyStart: Int, onSave: (Int) -> Unit) {
-    Card {
-        Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-            Text("Settings", style = MaterialTheme.typography.titleMedium)
-            var fyText by remember { mutableStateOf(fyStart.toString()) }
-            Row {
-                OutlinedTextField(
-                    value = fyText,
-                    onValueChange = { fyText = it },
-                    label = { Text("Fiscal Year Start Month (1–12)") },
-                    singleLine = true,
-                    modifier = Modifier.weight(1f),
-                    keyboardOptions = KeyboardOptions.Default
-                )
-                Spacer(Modifier.width(8.dp))
-                Button(onClick = { fyText.toIntOrNull()?.let { if (it in 1..12) onSave(it) } }) { Text("Save") }
+    var fyText by remember(fyStart) { mutableStateOf(fyStart.toString()) }
+
+    ElevatedCard(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(24.dp)
+    ) {
+        Column(
+            modifier = Modifier.padding(20.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            Text(
+                "Settings",
+                style = MaterialTheme.typography.titleLarge
+            )
+
+            OutlinedTextField(
+                value = fyText,
+                onValueChange = { fyText = it },
+                label = { Text("Fiscal Year Start Month (1–12)") },
+                singleLine = true,
+                modifier = Modifier.fillMaxWidth(),
+                keyboardOptions = KeyboardOptions.Default,
+                shape = RoundedCornerShape(16.dp)
+            )
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.End
+            ) {
+                Button(
+                    onClick = {
+                        fyText.toIntOrNull()?.let {
+                            if (it in 1..12) onSave(it)
+                        }
+                    },
+                    shape = RoundedCornerShape(16.dp)
+                ) {
+                    Text("Save")
+                }
             }
-            Text("Morning prompt ~8:30 AM (device time).")
+
+            Text(
+                "Morning prompt ~8:30 AM (device time).",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
         }
     }
 }
+
+private fun LocalDate.toShortMonthDay(): String {
+    return "${month.name.lowercase().replaceFirstChar { it.uppercase() }} $dayOfMonth"
+}
+
+private val shortFmt = DateTimeFormatter.ofPattern("MMM d")
 
 @Composable
 fun DashboardCard(ui: UiState) {
-    Card {
-        Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-            Text("Dashboard", style = MaterialTheme.typography.titleMedium)
-            Text("Quarter: ${ui.qStart} → ${ui.qEnd}")
-            Text("Business days (to date): ${ui.bizToDate}")
-            Text("Office days (to date): ${ui.officeToDate}")
-            Text("RTO % (to date): ${ui.rtoToDatePctString}")
-            HorizontalDivider()
-            Text("Business days (full qtr): ${ui.bizFull}")
-            Text("Office days (full qtr): ${ui.officeFull}")
-            Text("RTO % (full qtr): ${ui.rtoFullPctString}")
+    ElevatedCard(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(24.dp),
+        elevation = CardDefaults.elevatedCardElevation(defaultElevation = 3.dp)
+    ) {
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                Text(
+                    text = "Return to Office Tracker",
+                    style = MaterialTheme.typography.titleMedium
+                )
+                Text(
+                    text = "Q4 FY · ${ui.qStart.format(shortFmt)} – ${ui.qEnd.format(shortFmt)}",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                RtoSummaryPanel(
+                    title = "To-Date",
+                    progress = ui.rtoToDatePct,
+                    percentText = ui.rtoToDatePctString,
+                    businessDays = ui.bizToDate,
+                    officeDays = ui.officeToDate,
+                    modifier = Modifier.weight(1f)
+                )
+
+                RtoSummaryPanel(
+                    title = "Full Qtr",
+                    progress = ui.rtoFullPct,
+                    percentText = ui.rtoFullPctString,
+                    businessDays = ui.bizFull,
+                    officeDays = ui.officeFull,
+                    modifier = Modifier.weight(1f)
+                )
+            }
         }
     }
 }
 
 @Composable
-fun HolidaysCard(ui: UiState, onAdd: (LocalDate) -> Unit, onRemove: (LocalDate) -> Unit) {
-    val fmt = DateTimeFormatter.ISO_LOCAL_DATE
-    Card {
-        Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-            Text("Holidays", style = MaterialTheme.typography.titleMedium)
-            var holidayText by remember { mutableStateOf(LocalDate.now().format(fmt)) }
-            Row {
-                OutlinedTextField(
-                    value = holidayText,
-                    onValueChange = { holidayText = it },
-                    label = { Text("YYYY-MM-DD") },
-                    singleLine = true,
-                    modifier = Modifier.weight(1f)
-                )
-                Spacer(Modifier.width(8.dp))
-                Button(onClick = {
-                    runCatching { LocalDate.parse(holidayText, fmt) }.onSuccess(onAdd)
-                }) { Text("Add") }
+fun RtoSummaryPanel(
+    title: String,
+    progress: Float,
+    percentText: String,
+    businessDays: Int,
+    officeDays: Int,
+    modifier: Modifier = Modifier
+) {
+    Surface(
+        modifier = modifier,
+        shape = RoundedCornerShape(18.dp),
+        tonalElevation = 1.dp,
+        color = MaterialTheme.colorScheme.surface
+    ) {
+        Column(
+            modifier = Modifier.padding(12.dp),
+            verticalArrangement = Arrangement.spacedBy(10.dp)
+        ) {
+            Text(
+                text = title,
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+
+            CompactRtoGauge(
+                progress = progress,
+                percentText = percentText
+            )
+
+            MiniStatRow(
+                label = "Business Days",
+                value = businessDays.toString()
+            )
+
+            HorizontalDivider(
+                thickness = 0.8.dp,
+                color = MaterialTheme.colorScheme.outline.copy(alpha = 0.25f)
+            )
+
+            MiniStatRow(
+                label = "Office Days",
+                value = officeDays.toString()
+            )
+        }
+    }
+}
+
+@Composable
+fun CompactRtoGauge(
+    progress: Float,
+    percentText: String
+) {
+    val safeProgress = progress.coerceIn(0f, 1f)
+    val progressColor = gaugeColor(safeProgress)
+
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(88.dp),
+        contentAlignment = Alignment.Center
+    ) {
+        Canvas(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(56.dp)
+        ) {
+            val strokeWidth = 8.dp.toPx()
+            val gaugeDiameter = size.width * 0.7f
+            val left = (size.width - gaugeDiameter) / 2f
+            val top = 4.dp.toPx()
+
+            drawArc(
+                color = Color(0xFFE8E8EC),
+                startAngle = 180f,
+                sweepAngle = 180f,
+                useCenter = false,
+                topLeft = Offset(left, top),
+                size = Size(gaugeDiameter, gaugeDiameter),
+                style = Stroke(width = strokeWidth, cap = StrokeCap.Round)
+            )
+
+            drawArc(
+                color = progressColor,
+                startAngle = 180f,
+                sweepAngle = 180f * safeProgress,
+                useCenter = false,
+                topLeft = Offset(left, top),
+                size = Size(gaugeDiameter, gaugeDiameter),
+                style = Stroke(width = strokeWidth, cap = StrokeCap.Round)
+            )
+        }
+
+        Column(
+            modifier = Modifier.padding(top = 18.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                text = percentText,
+                style = MaterialTheme.typography.titleMedium,
+                color = progressColor
+            )
+            Text(
+                text = rtoStatusLabel(safeProgress),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+        }
+    }
+}
+
+@Composable
+fun MiniStatRow(
+    label: String,
+    value: String
+) {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(
+            text = label,
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant
+        )
+        Text(
+            text = value,
+            style = MaterialTheme.typography.titleSmall
+        )
+    }
+}
+
+@Composable
+fun CompactRtoGauge(
+    progress: Float,
+    label: String,
+    modifier: Modifier = Modifier
+) {
+    val safeProgress = progress.coerceIn(0f, 1f)
+    val percentage = (safeProgress * 100).roundToInt()
+    val progressColor = gaugeColor(safeProgress)
+
+    Surface(
+        modifier = modifier,
+        shape = RoundedCornerShape(18.dp),
+        tonalElevation = 1.dp,
+        color = MaterialTheme.colorScheme.surface
+    ) {
+        Column(
+            modifier = Modifier.padding(horizontal = 12.dp, vertical = 12.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(6.dp)
+        ) {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(80.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                Canvas(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(56.dp)
+                ) {
+                    val strokeWidth = 8.dp.toPx()
+                    val gaugeDiameter = size.width * 0.7f
+                    val left = (size.width - gaugeDiameter) / 2f
+                    val top = 6.dp.toPx()
+
+                    drawArc(
+                        color = Color(0xFFE8E8EC),
+                        startAngle = 180f,
+                        sweepAngle = 180f,
+                        useCenter = false,
+                        topLeft = Offset(left, top),
+                        size = Size(gaugeDiameter, gaugeDiameter),
+                        style = Stroke(width = strokeWidth, cap = StrokeCap.Round)
+                    )
+
+                    drawArc(
+                        color = progressColor,
+                        startAngle = 180f,
+                        sweepAngle = 180f * safeProgress,
+                        useCenter = false,
+                        topLeft = Offset(left, top),
+                        size = Size(gaugeDiameter, gaugeDiameter),
+                        style = Stroke(width = strokeWidth, cap = StrokeCap.Round)
+                    )
+                }
+
+                Column(
+                    modifier = Modifier.padding(top = 20.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text(
+                        text = "$percentage%",
+                        style = MaterialTheme.typography.titleMedium,
+                        color = progressColor
+                    )
+                    Text(
+                        text = label,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
             }
-            Spacer(Modifier.height(8.dp))
-            ui.holidays.forEach { d ->
-                Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                    Text(d.toString())
-                    TextButton(onClick = { onRemove(d) }) { Text("Remove") }
+        }
+    }
+}
+
+private fun parsePercentString(percent: String): Float {
+    return percent
+        .replace("%", "")
+        .trim()
+        .toFloatOrNull()
+        ?.div(100f)
+        ?: 0f
+}
+
+@Composable
+fun StatsGrid(ui: UiState) {
+    Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            StatTile(
+                label = "Business Days",
+                value = ui.bizToDate.toString(),
+                modifier = Modifier.weight(1f)
+            )
+            StatTile(
+                label = "Office Days",
+                value = ui.officeToDate.toString(),
+                modifier = Modifier.weight(1f)
+            )
+        }
+
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            StatTile(
+                label = "To-Date RTO",
+                value = ui.rtoToDatePctString,
+                modifier = Modifier.weight(1f),
+                valueColor = gaugeColor(ui.rtoToDatePct)
+            )
+            StatTile(
+                label = "Full-Qtr RTO",
+                value = ui.rtoFullPctString,
+                modifier = Modifier.weight(1f)
+            )
+        }
+    }
+}
+
+@Composable
+fun StatTile(
+    label: String,
+    value: String,
+    modifier: Modifier = Modifier,
+    valueColor: Color = MaterialTheme.colorScheme.onSurface
+) {
+    Surface(
+        modifier = modifier,
+        shape = RoundedCornerShape(18.dp),
+        tonalElevation = 2.dp,
+        color = MaterialTheme.colorScheme.surface
+    ) {
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(6.dp)
+        ) {
+            Text(
+                text = label,
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            Text(
+                text = value,
+                style = MaterialTheme.typography.titleLarge,
+                color = valueColor
+            )
+        }
+    }
+}
+
+@Composable
+fun RtoGauge(
+    progress: Float,
+    modifier: Modifier = Modifier
+) {
+    val safeProgress = progress.coerceIn(0f, 1f)
+    val percentage = (safeProgress * 100).roundToInt()
+    val progressColor = gaugeColor(safeProgress)
+
+    Box(
+        modifier = modifier,
+        contentAlignment = Alignment.TopCenter
+    ) {
+        Canvas(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(88.dp)
+        ) {
+            val strokeWidth = 10.dp.toPx()
+
+            // make the gauge smaller than the full card width
+            val gaugeDiameter = size.width * 0.55f
+            val left = (size.width - gaugeDiameter) / 2f
+            val top = 10.dp.toPx()
+
+            drawArc(
+                color = Color(0xFFE8E8EC),
+                startAngle = 180f,
+                sweepAngle = 180f,
+                useCenter = false,
+                topLeft = Offset(left, top),
+                size = Size(gaugeDiameter, gaugeDiameter),
+                style = Stroke(width = strokeWidth, cap = StrokeCap.Round)
+            )
+
+            drawArc(
+                color = progressColor,
+                startAngle = 180f,
+                sweepAngle = 180f * safeProgress,
+                useCenter = false,
+                topLeft = Offset(left, top),
+                size = Size(gaugeDiameter, gaugeDiameter),
+                style = Stroke(width = strokeWidth, cap = StrokeCap.Round)
+            )
+        }
+
+        Column(
+            modifier = Modifier.padding(top = 55.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                text = "$percentage%",
+                style = MaterialTheme.typography.titleMedium,
+                color = progressColor
+            )
+            Text(
+                text = "On Track",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+        }
+    }
+}
+
+@Composable
+fun CompactStatRow(
+    label: String,
+    value: String,
+    iconBg: Color,
+    iconColor: Color
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 2.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(
+            text = label,
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.weight(1f)
+        )
+
+        Text(
+            text = value,
+            style = MaterialTheme.typography.titleMedium
+        )
+
+        Spacer(Modifier.width(8.dp))
+
+        Surface(
+            modifier = Modifier.size(22.dp),
+            shape = RoundedCornerShape(11.dp),
+            color = iconBg
+        ) {
+            Box(contentAlignment = Alignment.Center) {
+                Text(
+                    text = "⌂",
+                    color = iconColor,
+                    style = MaterialTheme.typography.labelSmall
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun SmallMetricTile(
+    label: String,
+    value: String,
+    modifier: Modifier = Modifier,
+    valueColor: Color = MaterialTheme.colorScheme.onSurface
+) {
+    Surface(
+        modifier = modifier,
+        shape = RoundedCornerShape(16.dp),
+        tonalElevation = 1.dp,
+        color = MaterialTheme.colorScheme.surface
+    ) {
+        Column(
+            modifier = Modifier.padding(horizontal = 12.dp, vertical = 10.dp),
+            verticalArrangement = Arrangement.spacedBy(2.dp)
+        ) {
+            Text(
+                text = label,
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            Text(
+                text = value,
+                style = MaterialTheme.typography.headlineSmall,
+                color = valueColor
+            )
+        }
+    }
+}
+
+@Composable
+fun HolidaysCard(
+    ui: UiState,
+    onAdd: (LocalDate) -> Unit,
+    onRemove: (LocalDate) -> Unit
+) {
+    val fmt = DateTimeFormatter.ISO_LOCAL_DATE
+    var holidayText by remember { mutableStateOf(LocalDate.now().format(fmt)) }
+
+    ElevatedCard(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(24.dp)
+    ) {
+        Column(
+            modifier = Modifier.padding(20.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            Text(
+                "Holidays",
+                style = MaterialTheme.typography.titleLarge
+            )
+
+            OutlinedTextField(
+                value = holidayText,
+                onValueChange = { holidayText = it },
+                label = { Text("YYYY-MM-DD") },
+                singleLine = true,
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(16.dp)
+            )
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.End
+            ) {
+                Button(
+                    onClick = {
+                        runCatching { LocalDate.parse(holidayText, fmt) }.onSuccess(onAdd)
+                    },
+                    shape = RoundedCornerShape(16.dp)
+                ) {
+                    Text("Add")
+                }
+            }
+
+            if (ui.holidays.isEmpty()) {
+                Text(
+                    text = "No holidays added yet.",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            } else {
+                ui.holidays.forEach { d ->
+                    Surface(
+                        shape = RoundedCornerShape(16.dp),
+                        tonalElevation = 1.dp
+                    ) {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = 16.dp, vertical = 12.dp),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
+                                d.toString(),
+                                style = MaterialTheme.typography.bodyLarge
+                            )
+                            TextButton(onClick = { onRemove(d) }) {
+                                Text("Remove")
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -119,14 +719,81 @@ fun HolidaysCard(ui: UiState, onAdd: (LocalDate) -> Unit, onRemove: (LocalDate) 
 
 @Composable
 fun QuickLogCard(onYes: () -> Unit, onNo: () -> Unit) {
-    Card {
-        Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-            Text("Quick Log Today", style = MaterialTheme.typography.titleMedium)
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                Button(onClick = onYes) { Text("Yes") }
-                Button(onClick = onNo) { Text("No") }
+    ElevatedCard(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(24.dp),
+        elevation = CardDefaults.elevatedCardElevation(defaultElevation = 3.dp)
+    ) {
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(14.dp)
+        ) {
+            Text(
+                text = "Quick Log Today",
+                style = MaterialTheme.typography.titleMedium
+            )
+
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(10.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                PillButton(
+                    text = "Yes",
+                    onClick = onYes,
+                    containerColor = Color(0xFF8FAF7C),
+                    contentColor = Color.White,
+                    leading = "✓"
+                )
+
+                PillButton(
+                    text = "No",
+                    onClick = onNo,
+                    containerColor = Color(0xFFF1EEF2),
+                    contentColor = Color(0xFF4A4452),
+                    leading = "✕"
+                )
             }
-            Text("You can also use the notification actions each morning.")
         }
+    }
+}
+
+@Composable
+fun PillButton(
+    text: String,
+    onClick: () -> Unit,
+    containerColor: Color,
+    contentColor: Color,
+    leading: String
+) {
+    Button(
+        onClick = onClick,
+        shape = RoundedCornerShape(999.dp),
+        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 0.dp),
+        colors = ButtonDefaults.buttonColors(
+            containerColor = containerColor,
+            contentColor = contentColor
+        ),
+        modifier = Modifier.height(34.dp)
+    ) {
+        Text(
+            text = "$leading  $text",
+            style = MaterialTheme.typography.labelLarge
+        )
+    }
+}
+
+private fun gaugeColor(progress: Float): Color {
+    return when {
+        progress < 0.4f -> Color(0xFFD32F2F)
+        progress < 0.5f -> Color(0xFFF9A825)
+        else -> Color(0xFF3D8B40)
+    }
+}
+
+private fun rtoStatusLabel(progress: Float): String {
+    return when {
+        progress < 0.4f -> "Needs attention"
+        progress < 0.5f -> "Doing okay"
+        else -> "On track"
     }
 }

@@ -23,7 +23,9 @@ data class UiState(
     val rtoFullPctString: String = "0%",
     val holidays: List<LocalDate> = emptyList(),
     val dates: List<LocalDate> = emptyList(),
-    val attendanceMap: Map<LocalDate, Boolean> = emptyMap()
+    val attendanceMap: Map<LocalDate, Boolean> = emptyMap(),
+    val rtoToDatePct: Float = 0f,       // 0.0f to 1.0f
+    val rtoFullPct: Float = 0f
 )
 
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -67,13 +69,15 @@ val dates = generateSequence(qs) { it.plusDays(1) }
                     qEnd = qe,
                     bizToDate = bizTo,
                     officeToDate = officeTo,
-                    rtoToDatePctString = pct(officeTo, bizTo),
+                    rtoToDatePctString = pctString(officeTo, bizTo),
                     bizFull = bizFull,
                     officeFull = officeFull,
-                    rtoFullPctString = pct(officeFull, bizFull),
+                    rtoFullPctString = pctString(officeFull, bizFull),
                     holidays = holidays,
                     dates = dates,
-                    attendanceMap = map
+                    attendanceMap = map,
+                    rtoToDatePct = pct(officeTo, bizTo),
+                    rtoFullPct = pct(officeFull, bizFull)
                 )
             )
         }
@@ -86,7 +90,9 @@ val dates = generateSequence(qs) { it.plusDays(1) }
     fun setAttendance(date: LocalDate, went: Boolean) = viewModelScope.launch { repo.setAttendance(date, went); refresh.tryEmit(Unit) }
 
     companion object {
-        fun pct(n: Int, d: Int): String =
+        fun pctString(n: Int, d: Int): String =
             if (d == 0) "0%" else NumberFormat.getPercentInstance().apply { maximumFractionDigits = 1 }.format(n.toDouble()/d)
+        fun pct(n: Int, d: Int): Float =
+             if (d == 0) 0f else n.toFloat() / d.toFloat()
     }
 }

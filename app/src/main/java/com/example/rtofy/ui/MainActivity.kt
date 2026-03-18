@@ -2,6 +2,7 @@ package com.example.rtofy.ui
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.*
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -14,11 +15,16 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.rtofy.ui.theme.RtofyTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent { RtoApp() }
+        setContent {
+            RtofyTheme {
+                RtoApp()
+            }
+        }
     }
 }
 
@@ -27,12 +33,15 @@ enum class Dest(val route: String, val label: String) { Home("home","Home"), Edi
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)
 fun RtoApp(vm: RtoViewModel = viewModel()) {
+    Surface(
+        modifier = Modifier.fillMaxSize(),
+        color = MaterialTheme.colorScheme.background
+    ) {}
     val nav = rememberNavController()
     val backStackEntry by nav.currentBackStackEntryAsState()
     val current = backStackEntry?.destination?.route ?: Dest.Home.route
 
     Scaffold(
-        topBar = { TopAppBar(title = { Text("Return To Office Tracker (FY)") }) },
         bottomBar = {
             NavigationBar {
                 listOf(Dest.Home, Dest.Edit, Dest.Settings).forEach { d ->

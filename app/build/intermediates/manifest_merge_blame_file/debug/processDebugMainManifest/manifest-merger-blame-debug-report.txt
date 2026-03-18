@@ -8,338 +8,342 @@
 8        android:minSdkVersion="24"
 9        android:targetSdkVersion="34" />
 10
-11    <uses-permission android:name="android.permission.WAKE_LOCK" />
-11-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:23:5-68
-11-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:23:22-65
-12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-12-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:24:5-79
-12-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:24:22-76
-13    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-13-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:25:5-81
-13-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:25:22-78
-14    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-14-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:26:5-77
-14-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:26:22-74
-15
-16    <permission
-16-->[androidx.core:core:1.13.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/354f1b63ccc7143edaa9c95ca532bca1/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
-17        android:name="com.example.rtofy.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-17-->[androidx.core:core:1.13.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/354f1b63ccc7143edaa9c95ca532bca1/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
-18        android:protectionLevel="signature" />
-18-->[androidx.core:core:1.13.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/354f1b63ccc7143edaa9c95ca532bca1/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
-19
-20    <uses-permission android:name="com.example.rtofy.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-20-->[androidx.core:core:1.13.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/354f1b63ccc7143edaa9c95ca532bca1/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
-20-->[androidx.core:core:1.13.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/354f1b63ccc7143edaa9c95ca532bca1/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
-21
-22    <application
-22-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:2:3-20:17
-23        android:allowBackup="true"
-23-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:3:7-33
-24        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-24-->[androidx.core:core:1.13.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/354f1b63ccc7143edaa9c95ca532bca1/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
-25        android:debuggable="true"
-26        android:extractNativeLibs="false"
-27        android:icon="@mipmap/ic_launcher"
-27-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:5:7-41
-28        android:label="Clockwise"
-28-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:4:7-32
-29        android:roundIcon="@mipmap/ic_launcher"
-29-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:2:16-55
-30        android:supportsRtl="true" >
-30-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:6:7-33
-31        <activity
-31-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:7:5-14:16
-32            android:name="com.example.rtofy.ui.MainActivity"
-32-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:8:9-40
-33            android:exported="true" >
-33-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:9:9-32
-34            <intent-filter>
-34-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:10:7-13:23
-35                <action android:name="android.intent.action.MAIN" />
-35-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:11:9-60
-35-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:11:17-58
-36
-37                <category android:name="android.intent.category.LAUNCHER" />
-37-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:12:9-68
-37-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:12:19-66
-38            </intent-filter>
-39        </activity>
-40
-41        <receiver
-41-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:16:5-18:35
-42            android:name="com.example.rtofy.notify.NotificationActionReceiver"
-42-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:17:9-58
-43            android:exported="true" />
-43-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:18:9-32
-44
-45        <provider
-45-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:29:9-37:20
-46            android:name="androidx.startup.InitializationProvider"
-46-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:30:13-67
-47            android:authorities="com.example.rtofy.androidx-startup"
-47-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:31:13-68
-48            android:exported="false" >
-48-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:32:13-37
-49            <meta-data
-49-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:34:13-36:52
-50                android:name="androidx.work.WorkManagerInitializer"
-50-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:35:17-68
-51                android:value="androidx.startup" />
-51-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:36:17-49
-52            <meta-data
-52-->[androidx.emoji2:emoji2:1.3.0] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/16d0b6d6dee3e0054b05f5a12ba65b8e/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
-53                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-53-->[androidx.emoji2:emoji2:1.3.0] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/16d0b6d6dee3e0054b05f5a12ba65b8e/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
-54                android:value="androidx.startup" />
-54-->[androidx.emoji2:emoji2:1.3.0] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/16d0b6d6dee3e0054b05f5a12ba65b8e/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
-55            <meta-data
-55-->[androidx.lifecycle:lifecycle-process:2.8.6] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/2fd9c35949a21cf87a520bacb07610a6/transformed/lifecycle-process-2.8.6/AndroidManifest.xml:29:13-31:52
-56                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-56-->[androidx.lifecycle:lifecycle-process:2.8.6] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/2fd9c35949a21cf87a520bacb07610a6/transformed/lifecycle-process-2.8.6/AndroidManifest.xml:30:17-78
-57                android:value="androidx.startup" />
-57-->[androidx.lifecycle:lifecycle-process:2.8.6] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/2fd9c35949a21cf87a520bacb07610a6/transformed/lifecycle-process-2.8.6/AndroidManifest.xml:31:17-49
-58            <meta-data
-58-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
-59                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-59-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
-60                android:value="androidx.startup" />
-60-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
-61        </provider>
-62
-63        <service
-63-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:39:9-45:35
-64            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
-64-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:40:13-88
-65            android:directBootAware="false"
-65-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:41:13-44
-66            android:enabled="@bool/enable_system_alarm_service_default"
-66-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:42:13-72
-67            android:exported="false" />
-67-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:43:13-37
-68        <service
-68-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:46:9-52:35
-69            android:name="androidx.work.impl.background.systemjob.SystemJobService"
-69-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:47:13-84
-70            android:directBootAware="false"
-70-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:48:13-44
-71            android:enabled="@bool/enable_system_job_service_default"
-71-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:49:13-70
-72            android:exported="true"
-72-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:50:13-36
-73            android:permission="android.permission.BIND_JOB_SERVICE" />
-73-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:51:13-69
-74        <service
-74-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:53:9-59:35
-75            android:name="androidx.work.impl.foreground.SystemForegroundService"
-75-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:54:13-81
-76            android:directBootAware="false"
-76-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:55:13-44
-77            android:enabled="@bool/enable_system_foreground_service_default"
-77-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:56:13-77
-78            android:exported="false" />
-78-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:57:13-37
-79
-80        <receiver
-80-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:61:9-66:35
-81            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
-81-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:62:13-88
-82            android:directBootAware="false"
-82-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:63:13-44
-83            android:enabled="true"
-83-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:64:13-35
-84            android:exported="false" />
-84-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:65:13-37
-85        <receiver
-85-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:67:9-77:20
-86            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
-86-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:68:13-106
-87            android:directBootAware="false"
-87-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:69:13-44
-88            android:enabled="false"
-88-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:70:13-36
-89            android:exported="false" >
-89-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:71:13-37
-90            <intent-filter>
-90-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:73:13-76:29
-91                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
-91-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:74:17-87
-91-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:74:25-84
-92                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
-92-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:75:17-90
-92-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:75:25-87
-93            </intent-filter>
-94        </receiver>
-95        <receiver
-95-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:78:9-88:20
-96            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
-96-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:79:13-104
-97            android:directBootAware="false"
-97-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:80:13-44
-98            android:enabled="false"
-98-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:81:13-36
-99            android:exported="false" >
-99-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:82:13-37
-100            <intent-filter>
-100-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:84:13-87:29
-101                <action android:name="android.intent.action.BATTERY_OKAY" />
-101-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:85:17-77
-101-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:85:25-74
-102                <action android:name="android.intent.action.BATTERY_LOW" />
-102-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:86:17-76
-102-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:86:25-73
-103            </intent-filter>
-104        </receiver>
-105        <receiver
-105-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:89:9-99:20
-106            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
-106-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:90:13-104
-107            android:directBootAware="false"
-107-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:91:13-44
-108            android:enabled="false"
-108-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:92:13-36
-109            android:exported="false" >
-109-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:93:13-37
-110            <intent-filter>
-110-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:95:13-98:29
-111                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
-111-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:96:17-83
-111-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:96:25-80
-112                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
-112-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:97:17-82
-112-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:97:25-79
-113            </intent-filter>
-114        </receiver>
-115        <receiver
-115-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:100:9-109:20
-116            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
-116-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:101:13-103
-117            android:directBootAware="false"
-117-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:102:13-44
-118            android:enabled="false"
-118-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:103:13-36
-119            android:exported="false" >
-119-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:104:13-37
-120            <intent-filter>
-120-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:106:13-108:29
-121                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-121-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:107:17-79
-121-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:107:25-76
-122            </intent-filter>
-123        </receiver>
-124        <receiver
-124-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:110:9-121:20
-125            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
-125-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:111:13-88
-126            android:directBootAware="false"
-126-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:112:13-44
-127            android:enabled="false"
-127-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:113:13-36
-128            android:exported="false" >
-128-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:114:13-37
-129            <intent-filter>
-129-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:116:13-120:29
-130                <action android:name="android.intent.action.BOOT_COMPLETED" />
-130-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:117:17-79
-130-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:117:25-76
-131                <action android:name="android.intent.action.TIME_SET" />
-131-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:118:17-73
-131-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:118:25-70
-132                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
-132-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:119:17-81
-132-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:119:25-78
-133            </intent-filter>
-134        </receiver>
-135        <receiver
-135-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:122:9-131:20
-136            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
-136-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:123:13-99
-137            android:directBootAware="false"
-137-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:124:13-44
-138            android:enabled="@bool/enable_system_alarm_service_default"
-138-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:125:13-72
-139            android:exported="false" >
-139-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:126:13-37
-140            <intent-filter>
-140-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:128:13-130:29
-141                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
-141-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:129:17-98
-141-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:129:25-95
-142            </intent-filter>
-143        </receiver>
-144        <receiver
-144-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:132:9-142:20
-145            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
-145-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:133:13-78
-146            android:directBootAware="false"
-146-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:134:13-44
-147            android:enabled="true"
-147-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:135:13-35
-148            android:exported="true"
-148-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:136:13-36
-149            android:permission="android.permission.DUMP" >
-149-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:137:13-57
-150            <intent-filter>
-150-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:139:13-141:29
-151                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
-151-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:140:17-88
-151-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:140:25-85
-152            </intent-filter>
-153        </receiver>
-154
-155        <activity
-155-->[androidx.compose.ui:ui-tooling-android:1.7.2] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/c35d50aeb7871f8f154582a7a608b91b/transformed/ui-tooling-release/AndroidManifest.xml:23:9-25:39
-156            android:name="androidx.compose.ui.tooling.PreviewActivity"
-156-->[androidx.compose.ui:ui-tooling-android:1.7.2] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/c35d50aeb7871f8f154582a7a608b91b/transformed/ui-tooling-release/AndroidManifest.xml:24:13-71
-157            android:exported="true" />
-157-->[androidx.compose.ui:ui-tooling-android:1.7.2] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/c35d50aeb7871f8f154582a7a608b91b/transformed/ui-tooling-release/AndroidManifest.xml:25:13-36
-158
-159        <service
-159-->[androidx.room:room-runtime:2.6.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/054b87c2dd4463771b08df19e36806f1/transformed/room-runtime-2.6.1/AndroidManifest.xml:24:9-28:63
-160            android:name="androidx.room.MultiInstanceInvalidationService"
-160-->[androidx.room:room-runtime:2.6.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/054b87c2dd4463771b08df19e36806f1/transformed/room-runtime-2.6.1/AndroidManifest.xml:25:13-74
-161            android:directBootAware="true"
-161-->[androidx.room:room-runtime:2.6.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/054b87c2dd4463771b08df19e36806f1/transformed/room-runtime-2.6.1/AndroidManifest.xml:26:13-43
-162            android:exported="false" />
-162-->[androidx.room:room-runtime:2.6.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/054b87c2dd4463771b08df19e36806f1/transformed/room-runtime-2.6.1/AndroidManifest.xml:27:13-37
-163
-164        <receiver
-164-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
-165            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-165-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
-166            android:directBootAware="false"
-166-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
-167            android:enabled="true"
-167-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
-168            android:exported="true"
-168-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
-169            android:permission="android.permission.DUMP" >
-169-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
-170            <intent-filter>
-170-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
-171                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-171-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
-171-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
-172            </intent-filter>
-173            <intent-filter>
-173-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
-174                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-174-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
-174-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
-175            </intent-filter>
-176            <intent-filter>
-176-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
-177                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-177-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
-177-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
-178            </intent-filter>
-179            <intent-filter>
-179-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
-180                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-180-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
-180-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
-181            </intent-filter>
-182        </receiver>
-183    </application>
-184
-185</manifest>
+11    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+11-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:3:5-77
+11-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:3:22-74
+12    <uses-permission android:name="android.permission.WAKE_LOCK" />
+12-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:23:5-68
+12-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:23:22-65
+13    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+13-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:24:5-79
+13-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:24:22-76
+14    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+14-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:25:5-81
+14-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:25:22-78
+15    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+15-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:26:5-77
+15-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:26:22-74
+16
+17    <permission
+17-->[androidx.core:core:1.13.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/354f1b63ccc7143edaa9c95ca532bca1/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+18        android:name="com.example.rtofy.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+18-->[androidx.core:core:1.13.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/354f1b63ccc7143edaa9c95ca532bca1/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+19        android:protectionLevel="signature" />
+19-->[androidx.core:core:1.13.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/354f1b63ccc7143edaa9c95ca532bca1/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+20
+21    <uses-permission android:name="com.example.rtofy.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+21-->[androidx.core:core:1.13.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/354f1b63ccc7143edaa9c95ca532bca1/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+21-->[androidx.core:core:1.13.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/354f1b63ccc7143edaa9c95ca532bca1/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+22
+23    <application
+23-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:4:5-22:17
+24        android:allowBackup="true"
+24-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:5:7-33
+25        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+25-->[androidx.core:core:1.13.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/354f1b63ccc7143edaa9c95ca532bca1/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
+26        android:debuggable="true"
+27        android:extractNativeLibs="false"
+28        android:icon="@mipmap/ic_launcher"
+28-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:7:7-41
+29        android:label="Clockwise"
+29-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:6:7-32
+30        android:roundIcon="@mipmap/ic_launcher"
+30-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:4:18-57
+31        android:supportsRtl="true"
+31-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:8:7-33
+32        android:testOnly="true" >
+33        <activity
+33-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:9:5-16:16
+34            android:name="com.example.rtofy.ui.MainActivity"
+34-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:10:9-40
+35            android:exported="true" >
+35-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:11:9-32
+36            <intent-filter>
+36-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:12:7-15:23
+37                <action android:name="android.intent.action.MAIN" />
+37-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:13:9-60
+37-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:13:17-58
+38
+39                <category android:name="android.intent.category.LAUNCHER" />
+39-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:14:9-68
+39-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:14:19-66
+40            </intent-filter>
+41        </activity>
+42
+43        <receiver
+43-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:18:5-20:35
+44            android:name="com.example.rtofy.notify.NotificationActionReceiver"
+44-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:19:9-58
+45            android:exported="true" />
+45-->/opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:20:9-32
+46
+47        <provider
+47-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:29:9-37:20
+48            android:name="androidx.startup.InitializationProvider"
+48-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:30:13-67
+49            android:authorities="com.example.rtofy.androidx-startup"
+49-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:31:13-68
+50            android:exported="false" >
+50-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:32:13-37
+51            <meta-data
+51-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:34:13-36:52
+52                android:name="androidx.work.WorkManagerInitializer"
+52-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:35:17-68
+53                android:value="androidx.startup" />
+53-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:36:17-49
+54            <meta-data
+54-->[androidx.emoji2:emoji2:1.3.0] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/16d0b6d6dee3e0054b05f5a12ba65b8e/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+55                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+55-->[androidx.emoji2:emoji2:1.3.0] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/16d0b6d6dee3e0054b05f5a12ba65b8e/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+56                android:value="androidx.startup" />
+56-->[androidx.emoji2:emoji2:1.3.0] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/16d0b6d6dee3e0054b05f5a12ba65b8e/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+57            <meta-data
+57-->[androidx.lifecycle:lifecycle-process:2.8.6] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/2fd9c35949a21cf87a520bacb07610a6/transformed/lifecycle-process-2.8.6/AndroidManifest.xml:29:13-31:52
+58                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+58-->[androidx.lifecycle:lifecycle-process:2.8.6] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/2fd9c35949a21cf87a520bacb07610a6/transformed/lifecycle-process-2.8.6/AndroidManifest.xml:30:17-78
+59                android:value="androidx.startup" />
+59-->[androidx.lifecycle:lifecycle-process:2.8.6] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/2fd9c35949a21cf87a520bacb07610a6/transformed/lifecycle-process-2.8.6/AndroidManifest.xml:31:17-49
+60            <meta-data
+60-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+61                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+61-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+62                android:value="androidx.startup" />
+62-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+63        </provider>
+64
+65        <service
+65-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:39:9-45:35
+66            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
+66-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:40:13-88
+67            android:directBootAware="false"
+67-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:41:13-44
+68            android:enabled="@bool/enable_system_alarm_service_default"
+68-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:42:13-72
+69            android:exported="false" />
+69-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:43:13-37
+70        <service
+70-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:46:9-52:35
+71            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+71-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:47:13-84
+72            android:directBootAware="false"
+72-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:48:13-44
+73            android:enabled="@bool/enable_system_job_service_default"
+73-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:49:13-70
+74            android:exported="true"
+74-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:50:13-36
+75            android:permission="android.permission.BIND_JOB_SERVICE" />
+75-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:51:13-69
+76        <service
+76-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:53:9-59:35
+77            android:name="androidx.work.impl.foreground.SystemForegroundService"
+77-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:54:13-81
+78            android:directBootAware="false"
+78-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:55:13-44
+79            android:enabled="@bool/enable_system_foreground_service_default"
+79-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:56:13-77
+80            android:exported="false" />
+80-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:57:13-37
+81
+82        <receiver
+82-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:61:9-66:35
+83            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+83-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:62:13-88
+84            android:directBootAware="false"
+84-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:63:13-44
+85            android:enabled="true"
+85-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:64:13-35
+86            android:exported="false" />
+86-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:65:13-37
+87        <receiver
+87-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:67:9-77:20
+88            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
+88-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:68:13-106
+89            android:directBootAware="false"
+89-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:69:13-44
+90            android:enabled="false"
+90-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:70:13-36
+91            android:exported="false" >
+91-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:71:13-37
+92            <intent-filter>
+92-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:73:13-76:29
+93                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+93-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:74:17-87
+93-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:74:25-84
+94                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+94-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:75:17-90
+94-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:75:25-87
+95            </intent-filter>
+96        </receiver>
+97        <receiver
+97-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:78:9-88:20
+98            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
+98-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:79:13-104
+99            android:directBootAware="false"
+99-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:80:13-44
+100            android:enabled="false"
+100-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:81:13-36
+101            android:exported="false" >
+101-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:82:13-37
+102            <intent-filter>
+102-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:84:13-87:29
+103                <action android:name="android.intent.action.BATTERY_OKAY" />
+103-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:85:17-77
+103-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:85:25-74
+104                <action android:name="android.intent.action.BATTERY_LOW" />
+104-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:86:17-76
+104-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:86:25-73
+105            </intent-filter>
+106        </receiver>
+107        <receiver
+107-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:89:9-99:20
+108            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
+108-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:90:13-104
+109            android:directBootAware="false"
+109-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:91:13-44
+110            android:enabled="false"
+110-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:92:13-36
+111            android:exported="false" >
+111-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:93:13-37
+112            <intent-filter>
+112-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:95:13-98:29
+113                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+113-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:96:17-83
+113-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:96:25-80
+114                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
+114-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:97:17-82
+114-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:97:25-79
+115            </intent-filter>
+116        </receiver>
+117        <receiver
+117-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:100:9-109:20
+118            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
+118-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:101:13-103
+119            android:directBootAware="false"
+119-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:102:13-44
+120            android:enabled="false"
+120-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:103:13-36
+121            android:exported="false" >
+121-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:104:13-37
+122            <intent-filter>
+122-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:106:13-108:29
+123                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+123-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:107:17-79
+123-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:107:25-76
+124            </intent-filter>
+125        </receiver>
+126        <receiver
+126-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:110:9-121:20
+127            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+127-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:111:13-88
+128            android:directBootAware="false"
+128-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:112:13-44
+129            android:enabled="false"
+129-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:113:13-36
+130            android:exported="false" >
+130-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:114:13-37
+131            <intent-filter>
+131-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:116:13-120:29
+132                <action android:name="android.intent.action.BOOT_COMPLETED" />
+132-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:117:17-79
+132-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:117:25-76
+133                <action android:name="android.intent.action.TIME_SET" />
+133-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:118:17-73
+133-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:118:25-70
+134                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+134-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:119:17-81
+134-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:119:25-78
+135            </intent-filter>
+136        </receiver>
+137        <receiver
+137-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:122:9-131:20
+138            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
+138-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:123:13-99
+139            android:directBootAware="false"
+139-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:124:13-44
+140            android:enabled="@bool/enable_system_alarm_service_default"
+140-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:125:13-72
+141            android:exported="false" >
+141-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:126:13-37
+142            <intent-filter>
+142-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:128:13-130:29
+143                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
+143-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:129:17-98
+143-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:129:25-95
+144            </intent-filter>
+145        </receiver>
+146        <receiver
+146-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:132:9-142:20
+147            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
+147-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:133:13-78
+148            android:directBootAware="false"
+148-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:134:13-44
+149            android:enabled="true"
+149-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:135:13-35
+150            android:exported="true"
+150-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:136:13-36
+151            android:permission="android.permission.DUMP" >
+151-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:137:13-57
+152            <intent-filter>
+152-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:139:13-141:29
+153                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
+153-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:140:17-88
+153-->[androidx.work:work-runtime:2.9.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/834bb3b2cae95f5dff42384cc2ad1b07/transformed/work-runtime-2.9.1/AndroidManifest.xml:140:25-85
+154            </intent-filter>
+155        </receiver>
+156
+157        <activity
+157-->[androidx.compose.ui:ui-tooling-android:1.7.2] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/c35d50aeb7871f8f154582a7a608b91b/transformed/ui-tooling-release/AndroidManifest.xml:23:9-25:39
+158            android:name="androidx.compose.ui.tooling.PreviewActivity"
+158-->[androidx.compose.ui:ui-tooling-android:1.7.2] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/c35d50aeb7871f8f154582a7a608b91b/transformed/ui-tooling-release/AndroidManifest.xml:24:13-71
+159            android:exported="true" />
+159-->[androidx.compose.ui:ui-tooling-android:1.7.2] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/c35d50aeb7871f8f154582a7a608b91b/transformed/ui-tooling-release/AndroidManifest.xml:25:13-36
+160
+161        <service
+161-->[androidx.room:room-runtime:2.6.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/054b87c2dd4463771b08df19e36806f1/transformed/room-runtime-2.6.1/AndroidManifest.xml:24:9-28:63
+162            android:name="androidx.room.MultiInstanceInvalidationService"
+162-->[androidx.room:room-runtime:2.6.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/054b87c2dd4463771b08df19e36806f1/transformed/room-runtime-2.6.1/AndroidManifest.xml:25:13-74
+163            android:directBootAware="true"
+163-->[androidx.room:room-runtime:2.6.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/054b87c2dd4463771b08df19e36806f1/transformed/room-runtime-2.6.1/AndroidManifest.xml:26:13-43
+164            android:exported="false" />
+164-->[androidx.room:room-runtime:2.6.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/054b87c2dd4463771b08df19e36806f1/transformed/room-runtime-2.6.1/AndroidManifest.xml:27:13-37
+165
+166        <receiver
+166-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+167            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+167-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+168            android:directBootAware="false"
+168-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+169            android:enabled="true"
+169-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+170            android:exported="true"
+170-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+171            android:permission="android.permission.DUMP" >
+171-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+172            <intent-filter>
+172-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+173                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+173-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+173-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+174            </intent-filter>
+175            <intent-filter>
+175-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+176                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+176-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+176-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+177            </intent-filter>
+178            <intent-filter>
+178-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+179                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+179-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+179-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+180            </intent-filter>
+181            <intent-filter>
+181-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+182                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+182-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+182-->[androidx.profileinstaller:profileinstaller:1.3.1] /opt/repo/RTOFYTracker/.graddle/caches/9.0-milestone-1/transforms/e516461b542396cb0ed03a37436114ce/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+183            </intent-filter>
+184        </receiver>
+185    </application>
+186
+187</manifest>
