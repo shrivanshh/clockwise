@@ -70,7 +70,7 @@ public final class HolidayDao_Impl implements HolidayDao {
   }
 
   @Override
-  public Object insert(final Holiday h, final Continuation<? super Unit> $completion) {
+  public Object insert(final Holiday h, final Continuation<? super Unit> arg1) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       @NonNull
@@ -84,11 +84,11 @@ public final class HolidayDao_Impl implements HolidayDao {
           __db.endTransaction();
         }
       }
-    }, $completion);
+    }, arg1);
   }
 
   @Override
-  public Object deleteByDate(final LocalDate date, final Continuation<? super Unit> $completion) {
+  public Object deleteByDate(final LocalDate date, final Continuation<? super Unit> arg1) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       @NonNull
@@ -114,7 +114,7 @@ public final class HolidayDao_Impl implements HolidayDao {
           __preparedStmtOfDeleteByDate.release(_stmt);
         }
       }
-    }, $completion);
+    }, arg1);
   }
 
   @Override

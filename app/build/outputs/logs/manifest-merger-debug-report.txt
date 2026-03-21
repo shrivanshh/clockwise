@@ -124,12 +124,12 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] /opt/repo/RTOFYTracker/.gra
 		ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:9:9-43
 	android:allowBackup
 		ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:8:9-35
-activity#com.example.rtofy.ui.MainActivity
+activity#com.example.rtofy.MainActivity
 ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:14:9-21:20
 	android:exported
 		ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:16:13-36
 	android:name
-		ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:15:13-44
+		ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:15:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from /opt/repo/RTOFYTracker/app/src/main/AndroidManifest.xml:17:13-20:29
 action#android.intent.action.MAIN

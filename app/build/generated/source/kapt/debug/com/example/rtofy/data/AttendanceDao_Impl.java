@@ -10,6 +10,7 @@ import androidx.room.EntityInsertionAdapter;
 import androidx.room.EntityUpsertionAdapter;
 import androidx.room.RoomDatabase;
 import androidx.room.RoomSQLiteQuery;
+import androidx.room.SharedSQLiteStatement;
 import androidx.room.util.CursorUtil;
 import androidx.room.util.DBUtil;
 import androidx.sqlite.db.SupportSQLiteStatement;
@@ -35,12 +36,22 @@ import kotlinx.coroutines.flow.Flow;
 public final class AttendanceDao_Impl implements AttendanceDao {
   private final RoomDatabase __db;
 
-  private final EntityUpsertionAdapter<Attendance> __upsertionAdapterOfAttendance;
+  private final SharedSQLiteStatement __preparedStmtOfDeleteByDate;
 
   private final Converters __converters = new Converters();
 
+  private final EntityUpsertionAdapter<Attendance> __upsertionAdapterOfAttendance;
+
   public AttendanceDao_Impl(@NonNull final RoomDatabase __db) {
     this.__db = __db;
+    this.__preparedStmtOfDeleteByDate = new SharedSQLiteStatement(__db) {
+      @Override
+      @NonNull
+      public String createQuery() {
+        final String _query = "DELETE FROM attendance WHERE date = ?";
+        return _query;
+      }
+    };
     this.__upsertionAdapterOfAttendance = new EntityUpsertionAdapter<Attendance>(new EntityInsertionAdapter<Attendance>(__db) {
       @Override
       @NonNull
@@ -86,6 +97,36 @@ public final class AttendanceDao_Impl implements AttendanceDao {
         }
       }
     });
+  }
+
+  @Override
+  public Object deleteByDate(final LocalDate date, final Continuation<? super Unit> $completion) {
+    return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
+      @Override
+      @NonNull
+      public Unit call() throws Exception {
+        final SupportSQLiteStatement _stmt = __preparedStmtOfDeleteByDate.acquire();
+        int _argIndex = 1;
+        final Long _tmp = __converters.localDateToEpochDay(date);
+        if (_tmp == null) {
+          _stmt.bindNull(_argIndex);
+        } else {
+          _stmt.bindLong(_argIndex, _tmp);
+        }
+        try {
+          __db.beginTransaction();
+          try {
+            _stmt.executeUpdateDelete();
+            __db.setTransactionSuccessful();
+            return Unit.INSTANCE;
+          } finally {
+            __db.endTransaction();
+          }
+        } finally {
+          __preparedStmtOfDeleteByDate.release(_stmt);
+        }
+      }
+    }, $completion);
   }
 
   @Override

@@ -9,6 +9,9 @@ interface AttendanceDao {
     fun entriesBetween(start: LocalDate, end: LocalDate): Flow<List<Attendance>>
     @Query("SELECT * FROM attendance WHERE date = :date LIMIT 1")
     suspend fun get(date: LocalDate): Attendance?
+
+    @Query("DELETE FROM attendance WHERE date = :date")
+    suspend fun deleteByDate(date: LocalDate)
 }
 @Dao
 interface HolidayDao {

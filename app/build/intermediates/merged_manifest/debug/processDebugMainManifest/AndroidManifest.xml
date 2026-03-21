@@ -32,7 +32,7 @@
         android:supportsRtl="true"
         android:testOnly="true" >
         <activity
-            android:name="com.example.rtofy.ui.MainActivity"
+            android:name="com.example.rtofy.MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
